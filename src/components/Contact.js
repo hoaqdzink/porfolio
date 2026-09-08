@@ -17,7 +17,6 @@ export const Contact = () => {
     message: ''
   });
   const [buttonText, setButtonText] = useState('Send');
-  const [status, setStatus] = useState({ success: null, message: '' });
 
   const validateForm = () => {
     const { firstName, lastName, email, phone, message } = formDetails;
@@ -44,7 +43,6 @@ export const Contact = () => {
       .then(
         () => {
           setButtonText('Send');
-          setStatus({ success: true, message: 'Message sent successfully' });
           setFormDetails({
             firstName: '',
             lastName: '',
@@ -57,7 +55,6 @@ export const Contact = () => {
         (error) => {
           console.log('FAILED...', error.text);
           setButtonText('Send');
-          setStatus({ success: false, message: 'Something went wrong, please try again later.' });
           toast.error('Something went wrong, please try again later.');
         },
       );
