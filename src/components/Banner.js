@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import headerImg from "../assets/img/header-img.svg";
+import cvFile from "../assets/cv/NGUYEN_HOANG_VINH_JAVA_DEV.pdf";
 import { ArrowRightCircle } from 'react-bootstrap-icons';
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
@@ -11,7 +12,7 @@ export const Banner = () => {
   const [text, setText] = useState('');
   const [delta, setDelta] = useState(300 - Math.random() * 100);
   const [index, setIndex] = useState(1);
-  const toRotate = [ "Java Developer", "Front-End ReactJS", "DevOps Engineer" ];
+  const toRotate = [ "Java Developer", "Front-End ReactJS", "Software Engineer" ];
   const period = 1000;
 
   useEffect(() => {
@@ -48,7 +49,12 @@ export const Banner = () => {
   }
 
   const handleDownload = () => {
-    window.open('https://drive.google.com/file/d/1_A5T1IuoOiE0CMDsBlwaUP8jKhSSoZDq/view?usp=sharing', '_blank');
+    const link = document.createElement('a');
+    link.href = cvFile;
+    link.download = 'NGUYEN_HOANG_VINH_JAVA_DEV.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (

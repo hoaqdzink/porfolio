@@ -1,15 +1,73 @@
-import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { ProjectCard } from "./ProjectCard";
 import projImg1 from "../assets/img/project-img1.png";
 import projImg2 from "../assets/img/project-img2.png";
 import projImg3 from "../assets/img/project-img3.png";
 import colorSharp2 from "../assets/img/color-sharp2.png";
-import education from "../assets/img/skills/education.png";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
-import { Github } from "react-bootstrap-icons";
 
 export const Projects = () => {
+
+  const experiences = [
+    {
+      company: "KIENLONGBANK",
+      role: "Java Developer",
+      period: "08/2024 - Present",
+      current: true,
+      points: [
+        "Contributed to the HRM project under Agile methodology, developing modules for employee records, organizational structure, job positions, attendance, leave management, and employment contracts.",
+        "Successfully piloted and delivered the employee records and organizational structure modules to organization-wide go-live within 2 months, supporting 15,000+ employees across 700+ organizational units and regions.",
+        "Built an approval processing system using Kafka, CDC (Debezium), and Notification Service, leveraging Change Data Capture to capture and propagate data changes in real time, automate approval workflows and email notifications, and reduce manual processing by 80%.",
+        "Developed a core banking simulation system covering payments, savings, and credit accounts using Java Spring Boot 3, PostgreSQL, Kafka, and Redis, achieving a 90% score in the training project evaluation.",
+        "Supported task planning and coordination for a 5-member development team, including workload allocation, progress tracking, issue resolution, and technical support to team members when needed."
+      ]
+    },
+    {
+      company: "IVS JOIN STOCK COMPANY",
+      role: "Java Developer",
+      period: "10/2023 - 07/2024",
+      link: "https://indivisys.vn/",
+      points: [
+        "Conducted source code conversion from RPG to Java EE, ensuring accuracy and efficiency.",
+        "Utilized MyBatis for stable and efficient connections with PostgreSQL databases, enhancing data retrieval and processing capabilities.",
+        "Managed source code with SVN to ensure consistency and effective version control.",
+        "Prepared detailed reports for clients, providing clear insights into project progress and results.",
+        "Conducted JUnit testing to ensure code quality and early detection of potential bugs, enhancing overall product quality."
+      ]
+    },
+    {
+      company: "VNPLUS SOFTWARE DEVELOPMENT CORPORATION",
+      role: "Freelancer Tester & Front-End Developer",
+      period: "05/2022 - 11/2022",
+      link: "https://vnplus.vn/",
+      points: [
+        "Designing test planning and test cases, monitoring issues that arise during the testing process, collaborating with other teams to improve the product, writing test reports, and presenting assigned tasks.",
+        "Programming web design projects for the company using HTML, CSS, JavaScript, AngularJS, Bootstrap, and other relevant languages.",
+        "Troubleshooting website and application errors."
+      ]
+    }
+  ];
+
+  const education = [
+    {
+      school: "Vietnam National University, Ho Chi Minh City (VNU-HCM)",
+      program: "Ho Chi Minh City University of Technology (HCMUT)",
+      period: "2021 - Present",
+      current: true,
+      faculty: "Computer Science and Engineering",
+      major: "Computer Science",
+      gpa: "3.0 / 4.0"
+    },
+    {
+      school: "FPT University",
+      program: "FPT Polytechnic Ho Chi Minh",
+      period: "2019 - 07/2021",
+      faculty: "Information Technology",
+      major: "Software Applications",
+      gpa: "3.4 / 4.0"
+    }
+  ];
 
   const projects = [
     {
@@ -31,7 +89,7 @@ export const Projects = () => {
       description: "Php and MySQL",
       imgUrl: projImg3,
       Github: "https://github.com/hoaqdzink/AssignmentLTW.git",
-      pdf:"https://drive.google.com/file/d/1ZwZM9ea_mGVlPjI6b6Tb1TDqEVj7Ybc8/view?usp=sharing"
+      pdf: "https://drive.google.com/file/d/1ZwZM9ea_mGVlPjI6b6Tb1TDqEVj7Ybc8/view?usp=sharing"
     }
   ];
 
@@ -42,92 +100,81 @@ export const Projects = () => {
           <Col size={12}>
             <TrackVisibility>
               {({ isVisible }) =>
-              <div className={isVisible ? "animate__animated animate__fadeIn": ""}>
-                <h2>Experience</h2>
-                <p>I have accumulated valuable experience across various areas including work, education, and personal projects. 
-                  With a solid foundation from practical work and involvement in diverse projects, I have developed problem-solving skills, 
-                  time management, and effective teamwork. By combining extensive academic knowledge with practical experience, 
-                  I am ready to contribute and add value to the organization through creativity and dedicated commitment.</p>
-                  <p style={{color: "rgb(89 87 87)", fontSize: '15px'}}>Click to view experience</p>
-                <Tab.Container id="projects-tabs" defaultActiveKey="first">
-                <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
-                    <Nav.Item>
-                      <Nav.Link eventKey="first" className="Text_Tab">Work Experience</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                      <Nav.Link eventKey="second" className="Text_Tab">Education</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                      <Nav.Link eventKey="third" className="Text_Tab">Project</Nav.Link>
-                    </Nav.Item>
-                  </Nav>
-                  <Tab.Content id="slideInUp" className={isVisible ? "animate__animated animate__slideInUp" : ""}>
-                    <Tab.Pane eventKey="first">
-                      <Row className="work_experience">
-                        <h5><b>&middot; IVS JOIN STOCK COMPANY</b></h5>
-                        <a href="https://indivisys.vn/"><span>(https://indivisys.vn/)</span></a>
-                        <div class="info">
-                            <span style={{marginRight: '20px'}} class="position">Position: Java Developer</span> -
-                            <span style={{marginLeft: '20px'}}>Working period: 10/2023 - 7/2024</span>
-                        </div>
-                      </Row>
-                      <Row>
-                        <div class="experience">
-                            <h6>Below are some experiences I gained at the company:</h6>
-                            <ul>
-                                <li>Conducted source code conversion from RPG to Java EE, ensuring accuracy and efficiency.</li>
-                                <li>Utilized MyBatis for stable and efficient connections with PostgreSQL databases, enhancing data retrieval and processing capabilities.</li>
-                                <li>Managed source code with SVN to ensure consistency and effective version control.</li>
-                                <li>Prepared detailed reports for clients, providing clear insights into project progress and results.</li>
-                                <li>Conducted JUnit testing to ensure code quality and early detection of potential bugs, enhancing overall product quality.</li>
-                            </ul>
-                        </div>
-                      </Row>
+              <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
 
-                      <Row className="work_experience" style={{marginTop: '50px'}}>
-                        <h5><b>&middot; VNPLUS SOFTWARE DEVELOPMENT CORPORATION</b></h5>
-                        <a href="https://vnplus.vn/"><span>(https://vnplus.vn/)</span></a>
-                        <div class="info">
-                            <span style={{marginRight: '20px'}} class="position">Position: Freelancer Tester & Front-End Developer </span> -
-                            <span style={{marginLeft: '20px'}}>Working period: 05/2022 - 11/2022</span>
+                {/* ===== Work Experience — Timeline ===== */}
+                <div className="exp-block exp-block-first">
+                  <h3 className="exp-heading"><span>Work Experience</span></h3>
+                  <div className="timeline">
+                    {experiences.map((exp, index) => (
+                      <div className="timeline-item" key={index}>
+                        <div className="timeline-marker">
+                          <span className="timeline-dot"></span>
                         </div>
-                      </Row>
-                      <Row>
-                        <div class="experience">
-                            <h6>Below are some experiences I gained at the company:</h6>
-                            <ul>
-                                <li>Designing test planing and test cases , monitoring issues that arise during the testing process, collaborating with other teams to improve the product, writing test reports, and presenting assigned tasks.</li>
-                                <li>Programming web design projects for the company using HTML, CSS, JavaScript, AngularJS, Bootstrap, and other relevant languages..</li>
-                                <li>Troubleshooting website and application errors.</li>
-                            </ul>
+                        <div className="timeline-card">
+                          <div className="timeline-card-head">
+                            <h5 className="timeline-company">{exp.company}</h5>
+                            <span className={exp.current ? "timeline-period current" : "timeline-period"}>{exp.period}</span>
+                          </div>
+                          <div className="timeline-role">
+                            <span>{exp.role}</span>
+                            {exp.link &&
+                              <a href={exp.link} target="_blank" rel="noopener noreferrer">{exp.link}</a>}
+                          </div>
+                          <ul className="timeline-points">
+                            {exp.points.map((point, i) => (
+                              <li key={i}>{point}</li>
+                            ))}
+                          </ul>
                         </div>
-                      </Row>
-                    </Tab.Pane>
-                    <Tab.Pane eventKey="second" className="image-container">
-                      <img src={education} alt="" className="responsive-image" />
-                    </Tab.Pane>
-                    <Tab.Pane eventKey="third">
-                      <Row>
-                          {
-                            projects.map((project, index) => {
-                              return (
-                                <ProjectCard
-                                  key={index}
-                                  {...project}
-                                  />
-                              )
-                            })
-                          }
-                        </Row>
-                    </Tab.Pane>
-                  </Tab.Content>
-                </Tab.Container>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* ===== Education ===== */}
+                <div className="exp-block">
+                  <h3 className="exp-heading"><span>Education</span></h3>
+                  <div className="timeline">
+                    {education.map((edu, index) => (
+                      <div className="timeline-item" key={index}>
+                        <div className="timeline-marker">
+                          <span className="timeline-dot"></span>
+                        </div>
+                        <div className="timeline-card">
+                          <div className="timeline-card-head">
+                            <h5 className="timeline-company">{edu.school}</h5>
+                            <span className={edu.current ? "timeline-period current" : "timeline-period"}>{edu.period}</span>
+                          </div>
+                          <div className="timeline-role">
+                            <span>{edu.program}</span>
+                          </div>
+                          <div className="edu-meta">
+                            <span className="edu-tag"><b>Faculty:</b> {edu.faculty}</span>
+                            <span className="edu-tag"><b>Major:</b> {edu.major}</span>
+                            <span className="edu-tag edu-gpa"><b>GPA:</b> {edu.gpa}</span>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* ===== Projects — Grid ===== */}
+                <div className="exp-block">
+                  <h3 className="exp-heading"><span>Projects</span></h3>
+                  <Row className="justify-content-center">
+                    {projects.map((project, index) => (
+                      <ProjectCard key={index} {...project} />
+                    ))}
+                  </Row>
+                </div>
               </div>}
             </TrackVisibility>
           </Col>
         </Row>
       </Container>
-      <img className="background-image-right" src={colorSharp2}></img>
+      <img className="background-image-right" src={colorSharp2} alt=""></img>
     </section>
   )
 }
